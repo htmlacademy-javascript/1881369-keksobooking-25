@@ -1,5 +1,6 @@
 import {pristine} from'./form-validator.js';
 import './slider.js';
+import {resetSlider} from './slider.js';
 import {getLocationToString, resetMainPin, filterAd} from './map.js';
 import {sendData} from './api.js';
 import {openMessage} from './errors.js';
@@ -34,9 +35,14 @@ const resetForm = (evt) => {
   resetAllPhoto();
   mainPinLocation.value = getLocationToString(MAIN_LOCATION, NUMBER_AFTER_POINT);
   resetMainPin();
+  resetSlider();
 };
 
-resetButton.addEventListener('click', resetForm);
+const onClickResetButton = (evt) => {
+  resetForm(evt);
+};
+
+resetButton.addEventListener('click', onClickResetButton);
 
 adForm.addEventListener('submit', (evt) => {
   evt.preventDefault();

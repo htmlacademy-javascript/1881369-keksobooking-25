@@ -1,6 +1,6 @@
 import {createPopup} from './popup.js';
 import {getAds} from './api.js';
-import {toggleFormDisabled, toggleMapFiltersDisabled} from './form-switcher.js';
+import {disableForm, disableMapFilters} from './form-switcher.js';
 import {debounce, showAlert} from './util.js';
 import {checkAllFilters} from './filter.js';
 import {COUNT_OF_ADS, MAP_ZOOM, RERENDER_DELAY, MAIN_LOCATION, NUMBER_AFTER_POINT, Messages} from './const.js';
@@ -29,12 +29,10 @@ const getLocationToString = (obj, number) => {
   return `${lat}, ${lng}`;
 };
 
-toggleFormDisabled(true);
-toggleMapFiltersDisabled(true);
 
 const map = L.map('map-canvas')
   .on('load', () => {
-    toggleFormDisabled(false);
+    disableForm(false);
   })
   .setView(MAIN_LOCATION, MAP_ZOOM);
 
@@ -91,7 +89,7 @@ const resetMainPin = () => {
   allAds.push(...fetchedAds);
   allAds.slice(0, COUNT_OF_ADS).forEach((ad) => {
     createMarker(ad);
-    toggleMapFiltersDisabled(false);
+    disableMapFilters(false);
   });
 })();
 

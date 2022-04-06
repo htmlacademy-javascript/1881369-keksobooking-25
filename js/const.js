@@ -47,24 +47,25 @@ const MAIN_LOCATION = {
   lng: 139.748876,
 };
 
-const PRICE_RANGES = {
-  any: {
+const PriceRanges = {
+  ANY: {
     minprice : 0,
     maxprice : 100000,
   },
-  middle: {
+  MIDDLE: {
     minprice : 10001,
     maxprice : 50000,
   },
-  low: {
+  LOW: {
     minprice : 0,
     maxprice : 10000,
   },
-  high: {
+  HIGH: {
     minprice : 50001,
     maxprice : 100000,
   },
 };
+
 
 const ROOMS_GUESTS_OPTIONS = {
   '1': ['1'],
@@ -79,6 +80,7 @@ export {
   AdsTypes,
   adTypesToReadable,
   adTypesToPrice,
+  PriceRanges,
   FILE_TYPES,
   COUNT_OF_ADS,
   MAP_ZOOM,
@@ -87,7 +89,6 @@ export {
   NUMBER_AFTER_POINT,
   MAX_PRICE_FOR_NIGHT,
   PRICE_STEP,
-  PRICE_RANGES,
   DEFAULT_VALUE,
   ROOMS_GUESTS_OPTIONS
 };

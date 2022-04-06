@@ -1,4 +1,4 @@
-import {isEscapeKey} from './util.js';
+import {getIsEscape} from './util.js';
 
 const mainDocument = document.querySelector('body');
 
@@ -7,7 +7,7 @@ const openMessage = (template, isCloseButton) => {
   const submitButton = document.querySelector('.ad-form__submit');
   mainDocument.appendChild(templateElement);
   const onKeyDown = (evt) => {
-    if (isEscapeKey(evt)) {
+    if (getIsEscape(evt)) {
       evt.preventDefault();
       templateElement.remove();
       mainDocument.removeEventListener('keydown', onKeyDown);

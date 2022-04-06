@@ -30,9 +30,9 @@ pristine.addValidator(
   getAdTypeErrorMessage
 );
 
-const onAdTypeChange = function () {
-  adPrice.min = adTypesToPrice[this.value];
-  adPrice.placeholder =  adTypesToPrice[this.value];
+const onAdTypeChange = () => {
+  adPrice.min = adTypesToPrice[adType.value];
+  adPrice.placeholder =  adTypesToPrice[adType.value];
   if (adPrice.value) {
     pristine.validate(adPrice);
   }

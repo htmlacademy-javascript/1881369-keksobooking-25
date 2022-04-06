@@ -1,5 +1,5 @@
 // Склонение существительных после числительного
-const numDecline = (n, form1, form2, form3) => {
+const getWordEnd = (n, form1, form2, form3) => {
   n = Math.abs(n) % 100;
   const n1 = n % 10;
   if (n > 10 && n < 20) {
@@ -14,7 +14,7 @@ const numDecline = (n, form1, form2, form3) => {
   return form3;
 };
 
-const isEscapeKey = (evt) => evt.key === 'Escape';
+const getIsEscape = (evt) => evt.key === 'Escape';
 
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
@@ -49,8 +49,8 @@ const debounce = (callback, timeoutDelay = 500) => {
 };
 
 export {
-  numDecline,
-  isEscapeKey,
+  getWordEnd,
+  getIsEscape,
   showAlert,
   debounce,
 };
